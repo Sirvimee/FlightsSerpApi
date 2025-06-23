@@ -1,7 +1,9 @@
 package service;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import model.Flight;
 import model.FlightResult;
 import model.FlightsByDateAndDestination;
 import model.SerpApiProperties;
@@ -84,6 +86,14 @@ public class FlightService {
             }
         }
         return results;
+    }
+
+    @Transactional
+    public void deleteFlightsByDate(LocalDate date) {
+        List<Flight> flights = flightRepository.findAllByDate(date);
+        for (Flight f : flights) {
+            flightRepository.delete(f);
+        }
     }
 
 }

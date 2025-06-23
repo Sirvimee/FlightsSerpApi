@@ -1,0 +1,15 @@
+{
+  "build": {
+    "builder": "docker"
+  },
+  "deploy": {
+    "startCommand": "./mvnw spring-boot:run"
+  },
+  "jobs": [
+    {
+      "name": "import-flights-daily",
+      "schedule": "1 0 * * *",
+      "command": "./mvnw spring-boot:run"
+    }
+  ]
+}
