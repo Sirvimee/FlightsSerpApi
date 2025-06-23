@@ -9,7 +9,7 @@
     {
       "name": "import-flights-daily",
       "schedule": "1 0 * * *",
-      "command": "chmod +x ./mvnw && ./mvnw spring-boot:run"
+      "command": "./mvnw spring-boot:run"
     }
   ]
 }
