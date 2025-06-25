@@ -1,10 +1,12 @@
 package com.example.FlightsFromSerpApi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -13,8 +15,17 @@ import lombok.NoArgsConstructor;
 public class Airplane {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String model;
-    private Integer capacity;
+    private int capasity;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "airplane", cascade = CascadeType.ALL)
+    private List<AirplaneSeat> airplaneSeats;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "airplane", cascade = CascadeType.ALL)
+    private List<Flight> flights;
 }

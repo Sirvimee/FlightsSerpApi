@@ -12,12 +12,14 @@ import lombok.NoArgsConstructor;
 public class AirplaneSeat {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    Airplane airplane;
+    @JoinColumn(name = "airplane_id")
+    private Airplane airplane;
 
     @ManyToOne
-    Seat seat;
+    @JoinColumn(name = "seat_id")
+    private Seat seat;
 }
