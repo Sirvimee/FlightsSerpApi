@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import service.FlightImportScheduler;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.example.FlightsFromSerpApi", "service"})
 public class FlightsFromSerpApiApplication implements CommandLineRunner {
 
     @Autowired
