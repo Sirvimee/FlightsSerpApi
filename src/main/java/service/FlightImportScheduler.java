@@ -32,7 +32,7 @@ public class FlightImportScheduler {
    * Käivita iga päev kell 00:01 Tallinna aja järgi.
    * Croni kuue välja formaadis: sek, min, h, päev, kuu, nädalapäev
    */
-  @Scheduled(cron = "0 1 0 * * *", zone = "Europe/Tallinn")
+  // @Scheduled(cron = "0 1 0 * * *", zone = "Europe/Tallinn")
   public void importTomorrowsFlights() {
     log.info("----- Alustan lennuandmete importi -----");
 
