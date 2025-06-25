@@ -70,17 +70,16 @@ public class FlightImportScheduler {
     f.setAirline(fr.getAirline());
     f.setDestination(fr.getArrivalAirport());
 
-    // eeldame, et kellad tulevad formaadis "HH:mm"
-    DateTimeFormatter tf = DateTimeFormatter.ofPattern("HH:mm");
-    f.setDepartureTime(LocalTime.parse(fr.getDepartureTime(), tf));
+    // parsi "2025-06-29 06:00" kujulised stringid
+    DateTimeFormatter fullFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-    LocalDateTime arrival = LocalDateTime.of(
-            flightDate,
-            LocalTime.parse(fr.getArrivalTime(), tf)
-    );
+    LocalDateTime departure = LocalDateTime.parse(fr.getDepartureTime(), fullFormatter);
+    f.setDepartureTime(departure.toLocalTime());
+
+    LocalDateTime arrival = LocalDateTime.parse(fr.getArrivalTime(), fullFormatter);
     f.setArrivalTime(Timestamp.valueOf(arrival));
 
-    f.setPrice(100 + random.nextInt(401)); // hind vahemikus 100-500
+    f.setPrice(100 + random.nextInt(401)); // hind vahemikus 100–500
     f.setAirplaneId(random.nextBoolean() ? 1L : 2L); // 1 või 2
 
     return f;
