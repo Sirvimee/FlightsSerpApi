@@ -27,11 +27,6 @@ public class FlightImportScheduler {
   private final FlightSeatRepository flightSeatRepository;
   private final Random random = new Random();
 
-  /**
-   * Käivita iga päev kell 00:01 Tallinna aja järgi.
-   * Croni kuue välja formaadis: sek, min, h, päev, kuu, nädalapäev
-   */
-  // @Scheduled(cron = "0 1 0 * * *", zone = "Europe/Tallinn")
   public void importTomorrowsFlights() {
     log.info("----- Alustan lennuandmete importi -----");
 
