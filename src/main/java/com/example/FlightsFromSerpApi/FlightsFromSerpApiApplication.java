@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.example.FlightsFromSerpApi", "service", "repository"})
+@ComponentScan(basePackages = {"com.example.FlightsFromSerpApi", "service", "repository", "model"})
 @EnableJpaRepositories(basePackages = {"repository"})
 public class FlightsFromSerpApiApplication implements CommandLineRunner {
 
