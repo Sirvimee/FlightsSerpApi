@@ -45,5 +45,6 @@ public class Flight {
     @JsonIgnore
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)
     private List<ReservationSeat> reservationSeats;
+
 }
 
