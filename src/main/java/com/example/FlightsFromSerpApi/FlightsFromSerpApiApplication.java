@@ -21,10 +21,15 @@ public class FlightsFromSerpApiApplication implements CommandLineRunner {
 	}
 
 	@Override
-  	public void run(String... args) {
-    	if (this.args.containsOption("importFlights")) {
-      flightImportScheduler.importTomorrowsFlights();
-      System.exit(0); 
+	public void run(String... args) {
+  		if (this.args.containsOption("importFlights")) {
+    			try {
+      				flightImportScheduler.importTomorrowsFlights();
+      				System.exit(0);
+    			} catch (Exception e) {
+      				System.err.println("Lennundusandmete import ebaõnnestus: " + e.getMessage());
+      				e.printStackTrace();
+      				System.exit(1); // <- see annab Railwayle signaali, et tõesti crashis
     }
   }
 }
