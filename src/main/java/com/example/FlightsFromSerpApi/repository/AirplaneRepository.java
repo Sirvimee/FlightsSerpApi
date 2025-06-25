@@ -1,6 +1,6 @@
-package repository;
+package com.example.FlightsFromSerpApi.repository;
 
-import model.Airplane;
+import com.example.FlightsFromSerpApi.model.Airplane;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

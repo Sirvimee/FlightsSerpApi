@@ -1,15 +1,15 @@
-package service;
+package com.example.FlightsFromSerpApi.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import model.Flight;
-import model.FlightResult;
-import model.FlightsByDateAndDestination;
-import model.SerpApiProperties;
+import com.example.FlightsFromSerpApi.model.Flight;
+import com.example.FlightsFromSerpApi.model.FlightResult;
+import com.example.FlightsFromSerpApi.model.FlightsByDateAndDestination;
+import com.example.FlightsFromSerpApi.model.SerpApiProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import repository.FlightRepository;
+import com.example.FlightsFromSerpApi.repository.FlightRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

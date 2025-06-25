@@ -1,16 +1,15 @@
-package service;
+package com.example.FlightsFromSerpApi.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import model.Flight;
-import model.FlightResult;
-import model.FlightSeat;
-import model.FlightsByDateAndDestination;
-import org.springframework.scheduling.annotation.Scheduled;
+import com.example.FlightsFromSerpApi.model.Flight;
+import com.example.FlightsFromSerpApi.model.FlightResult;
+import com.example.FlightsFromSerpApi.model.FlightSeat;
+import com.example.FlightsFromSerpApi.model.FlightsByDateAndDestination;
 import org.springframework.stereotype.Service;
-import repository.FlightRepository;
-import repository.FlightSeatRepository;
-import repository.SeatRepository;
+import com.example.FlightsFromSerpApi.repository.FlightRepository;
+import com.example.FlightsFromSerpApi.repository.FlightSeatRepository;
+import com.example.FlightsFromSerpApi.repository.SeatRepository;
 
 import java.sql.Timestamp;
 import java.time.*;

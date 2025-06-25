@@ -1,4 +1,4 @@
-package model;
+package com.example.FlightsFromSerpApi.model;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
