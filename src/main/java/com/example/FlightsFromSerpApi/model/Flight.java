@@ -30,9 +30,7 @@ public class Flight {
 
     private double price;
 
-    @ManyToOne
-    @JoinColumn(name = "airplane_id")
-    private Airplane airplane;
+    private Long airplaneId;
 
     @JsonIgnore
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)
