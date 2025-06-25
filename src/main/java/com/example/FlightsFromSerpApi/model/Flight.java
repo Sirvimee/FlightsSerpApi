@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class Flight {
     private LocalTime departureTime;
 
     @Column(name = "arrival_time")
-    private LocalDateTime arrivalTime;
+    private Timestamp arrivalTime;
 
     private double price;
 
