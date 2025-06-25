@@ -10,26 +10,27 @@ import service.FlightImportScheduler;
 @SpringBootApplication
 public class FlightsFromSerpApiApplication implements CommandLineRunner {
 
-	@Autowired
-  	private FlightImportScheduler flightImportScheduler;
+    @Autowired
+    private FlightImportScheduler flightImportScheduler;
 
-  	@Autowired
-  	private ApplicationArguments args;
+    @Autowired
+    private ApplicationArguments args;
 
-	public static void main(String[] args) {
-		SpringApplication.run(FlightsFromSerpApiApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) {
-  		if (this.args.containsOption("importFlights")) {
-    			try {
-      				flightImportScheduler.importTomorrowsFlights();
-      				System.exit(0);
-    			} catch (Exception e) {
-      				System.err.println("Lennundusandmete import ebaõnnestus: " + e.getMessage());
-      				e.printStackTrace();
-      				System.exit(1); // <- see annab Railwayle signaali, et tõesti crashis
+    public static void main(String[] args) {
+        SpringApplication.run(FlightsFromSerpApiApplication.class, args);
     }
-  }
+
+    @Override
+    public void run(String... args) {
+        if (this.args.containsOption("importFlights")) {
+            try {
+                flightImportScheduler.importTomorrowsFlights();
+                System.exit(0); // edukas töö lõpp Railway jaoks
+            } catch (Exception e) {
+                System.err.println("Lennundusandmete import ebaõnnestus: " + e.getMessage());
+                e.printStackTrace();
+                System.exit(1); // Railway saab veast teada
+            }
+        }
+    }
 }
