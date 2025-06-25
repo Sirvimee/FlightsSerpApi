@@ -28,7 +28,7 @@ public class FlightService {
 
     public List<FlightsByDateAndDestination> fetchFlightsForNextDays(int days) {
         List<FlightsByDateAndDestination> results = new ArrayList<>();
-        LocalDate today = LocalDate.now().plusDays(4);
+        LocalDate today = LocalDate.now().plusDays(5);
 
         for (int i = 0; i < days; i++) {
             LocalDate date = today.plusDays(i);
