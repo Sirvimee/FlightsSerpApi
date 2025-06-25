@@ -7,9 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.CommandLineRunner;
 import service.FlightImportScheduler;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.example.FlightsFromSerpApi", "service"})
+@ComponentScan(basePackages = {"com.example.FlightsFromSerpApi", "service", "repository"})
+@EnableJpaRepositories(basePackages = {"repository"})
 public class FlightsFromSerpApiApplication implements CommandLineRunner {
 
     @Autowired
