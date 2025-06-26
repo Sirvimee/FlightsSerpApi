@@ -30,10 +30,8 @@ public class FlightImportScheduler {
   public void importTomorrowsFlights() {
     log.info("----- Alustan lennuandmete importi -----");
 
-    LocalDate yesterday = LocalDate.now().minusDays(1);
-    LocalDate today = LocalDate.now();
-    flightService.deleteFlightsByDate(yesterday);
-    flightService.deleteFlightsByDate(today);
+    LocalDate tomorrow = LocalDate.now().plusDays(1);
+    flightService.deleteFlightsByDate(tomorrow);
 
     for (FlightsByDateAndDestination dto : flightService.fetchFlightsForNextDays(1)) {
       for (FlightResult fr : dto.getFlights()) {
